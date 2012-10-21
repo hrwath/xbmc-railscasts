@@ -1,0 +1,15 @@
+<addon id="plugin.video.railscasts" name="Railscasts" provider-name="Pawel Lenart" version="0.1">
+    <requires>
+        <import addon="xbmc.python" version="2.0" />
+        <import addon="script.module.xbmcswift2" version="1.1.1" />
+    </requires>
+    <extension library="addon.py" point="xbmc.python.pluginsource">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <platform>all</platform>
+        <language />
+        <summary>Watch screencasts about Rails from http://railscasts.com</summary>
+        <description>Railscasts episodes available straight from XBMC.</description>
+    </extension>
+</addon>
