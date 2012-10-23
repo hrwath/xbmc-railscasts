@@ -8,6 +8,7 @@
     :license: GPLv3, see LICENSE.txt for more details.
 '''
 
+import re
 from urllib2 import urlopen
 from xml.dom import minidom
 from xbmcswift2 import Plugin
@@ -38,11 +39,13 @@ def get_episodes():
     _urls = nodes[0].getElementsByTagName('enclosure')
 
     for i in range(0, _titles.length):
-        print i
+        url = _urls[i].getAttribute('url')
+
         episodes.append({
             'title': _titles[i].childNodes[0].toxml() + ' (' + _durations[i].childNodes[0].toxml() + ')',
+            'thumbnail': "http://railscasts.com/static/episodes/stills/%s.png" % (re.search('((?<=/)[a-z0-9-]+)\.mp4', url).group(1)),
             'description': _descriptions[i].childNodes[0].toxml(),
-            'url': _urls[i].getAttribute('url')
+            'url': url
         })
 
     return episodes
@@ -53,7 +56,7 @@ def index():
     items = [{
         'label': episode['title'],
         'path': episode['url'],
-        'thumbnail': '',
+        'thumbnail': episode['thumbnail'],
         'info': {
             'plot': episode['description']
         },
