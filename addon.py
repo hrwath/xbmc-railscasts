@@ -4,7 +4,7 @@
 
     Watch screencasts from http://railscasts.com in XBMC.
 
-    :copyright: (c) 2012 by Jonathan Beluch
+    :copyright: (c) 2012 by Pawel Lenart
     :license: GPLv3, see LICENSE.txt for more details.
 '''
 
